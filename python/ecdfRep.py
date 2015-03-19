@@ -21,7 +21,7 @@ def ecdfRep(data, components):
     #
     m = data.mean(0)
     data = sort(data, axis=0)
-    data = data[int32(linspace(0,data.shape[0]-1,num=components)),:]
+    data = data[int32(around(linspace(0,data.shape[0]-1,num=components))),:]
     data = data.flatten(1)
     return hstack((data, m))
 

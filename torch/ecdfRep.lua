@@ -27,7 +27,7 @@ function ecdfRep(data, components, notInPlace)
 	local d = data
 	local e, m
 	
-	-- are we doing it in place? (changing data in the process?)
+	-- are we doing it in place? (changing the ordering in data in the process?)
 	if notInPlace then
 		d = data:clone()
 	end

@@ -21,7 +21,7 @@
 # (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 # SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-from numpy import *
+import numpy as np
 
 def ecdfRep(data, components):
     #
@@ -43,13 +43,13 @@ def ecdfRep(data, components):
     #   Nils Hammerla '15
     #
     m = data.mean(0)
-    data = sort(data, axis=0)
-    data = data[int32(around(linspace(0,data.shape[0]-1,num=components))),:]
+    data = np.sort(data, axis=0)
+    data = data[np.int32(np.around(np.linspace(0,data.shape[0]-1,num=components))),:]
     data = data.flatten(1)
-    return hstack((data, m))
+    return np.hstack((data, m))
 
 if __name__ == '__main__':
-    a = random.randn(100,3)
+    a = np.random.randn(100,3)
     e1 = ecdfRep(a,5)
     print e1
     print "all done"
